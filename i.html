@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas">
+
+    </canvas>
+
+    <script>
+        let canvas = document.querySelector('#canvas')
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth
+        let c = canvas.getContext('2d');
+
+        //        //rectangle
+        //        //rect
+        //        c.beginPath()
+        //        c.rect(100,100,200,200)
+        //        c.fillStyle="red";
+        //        c.strokeStyle="black"
+        //        c.lineWidth=20
+        //        c.stroke()
+        //        c.fill()
+        //        
+        //        //fillrect
+        //        c.fillStyle="blue"
+        //        c.fillRect(200,600,10,10);
+        //        c.closePath()
+        //        
+        //        //strokerect
+        //        c.beginPath()
+        //        c.strokeStyle="green"
+        //        c.strokeRect(700,100,100,30)
+        //        c.closePath()
+        //        
+        //        //line
+        //        
+        //        c.beginPath();
+        //        c.moveTo(100,100);
+        //        c.lineTo(200,600);
+        //        c.strokeStyle="green";
+        //        c.stroke()
+        //        c.closePath()
+        //        
+        //arc
+
+
+        //        function fun(){
+        //            let x = Math.round(Math.random() * innerWidth)
+        //            let y = Math.round(Math.random() * innerHeight)
+        //            let r = 30;
+        //            c.beginPath()
+        //            c.arc(x, y, r, 0, Math.PI * 2, true)
+        //            c.strokeStyle = "green"
+        //            c.fillStyle = "black";
+        //            c.fill()
+        //            c.stroke()
+        //            c.closePath();
+        //            requestAnimationFrame(fun)
+        //        }
+        //        fun()
+
+
+            let x=100;
+            let y=100;
+        function movecircle() {
+            c.clearRect(0,0,innerWidth,innerHeight) 
+            let dx=2;
+            let dy=2;
+            x+=dx
+            y+=dy
+            console.log(x)
+            c.beginPath();
+            c.arc(x, y, 50, 0, Math.PI * 2, true)
+            c.strokeStyle = "green"
+            c.fillStyle = "black";
+            c.fill()
+            c.stroke()
+            c.closePath();
+            requestAnimationFrame(movecircle)
+        }
+        movecircle()
+    </script>
+</body></html>

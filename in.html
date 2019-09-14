@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.main{
+			position: relative;
+			height: 100vh;
+			width: 100vw;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		
+	</div>
+	<script type="text/javascript">
+		function creatediv(x,y,r,color){
+          let div=document.createElement("div")
+          div.style.width=`${r}px`
+          div.style.height=`${r}px`
+          div.style.backgroundColor=color;
+          div.style.position="absolute"
+          div.style.top=`${y}px`
+          div.style.left=`${x}px`
+          div.style.borderRadius="50%"
+          document.querySelector('.main').appendChild(div)
+          return div;
+		}
+		function loop(){
+			for(let i=0;i<100;i++){
+              let x=Math.floor(Math.random()*innerWidth)
+              let y=Math.floor(Math.random()*innerHeight)
+              let r=Math.floor(Math.random()*50)
+
+				let div=creatediv(x,y,r,"red")
+				
+				setInterval(()=>{
+					move(div)
+				},10)
+		}
+		}
+		d=2
+		dd=2
+		function move(div){
+			
+			let top=div.style.top
+			top=parseInt(top.replace("px",""))
+			if(top<innerHeight-20){
+				d=-d
+			}
+			top+=d
+			
+			div.style.top=`${top}px`
+
+			let left=div.style.left
+			left=parseInt(left.replace("px",""))
+			if(left>innerWidth){
+				dd=-dd
+			}
+			left+=dd
+			div.style.left=`${left}px`
+		}
+		loop()		
+	</script>
+</body>
+</html>
